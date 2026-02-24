@@ -1,0 +1,16 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src/index.ts"],
+  "out": "./docs",
+  "name": "Haskimail Node.js",
+  "readme": "./README.md",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "includeVersion": true,
+  "navigationLinks": {
+    "Haskimail": "https://haskimail.ru",
+    "API Docs": "https://haskimail.ru/developer",
+    "GitHub": "https://github.com/Dashamail/haskimail.js",
+    "npm": "https://www.npmjs.com/package/haskimail"
+  }
+}

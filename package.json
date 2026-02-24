@@ -1,0 +1,53 @@
+{
+  "name": "haskimail",
+  "version": "1.0.0",
+  "description": "Официальная Node.js библиотека для работы с API Haskimail",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jest.config.js",
+    "test:unit": "jest --config jest.config.js test/unit",
+    "test:integration": "jest --config jest.config.js test/integration",
+    "prepublishOnly": "npm run build",
+    "docs": "typedoc",
+    "docs:serve": "typedoc --watch"
+  },
+  "keywords": [
+    "haskimail",
+    "dashamail",
+    "email",
+    "transactional",
+    "api",
+    "smtp"
+  ],
+  "author": "Dashamail <support@dashamail.ru> (https://dashamail.ru)",
+  "license": "MIT",
+  "homepage": "https://github.com/Dashamail/haskimail.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dashamail/haskimail.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dashamail/haskimail.js/issues"
+  },
+  "dependencies": {
+    "axios": "^1.7.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typedoc": "^0.28.17",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "LICENSE",
+    "README.md"
+  ]
+}
