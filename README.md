@@ -6,7 +6,7 @@
 
 Официальная Node.js библиотека для работы с [Haskimail API](https://haskimail.ru).
 
-[![npm version](https://badge.fury.io/js/haskimail.svg)](https://www.npmjs.com/package/haskimail)
+[![npm version](https://img.shields.io/npm/v/haskimail.svg)](https://www.npmjs.com/package/haskimail)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Установка
