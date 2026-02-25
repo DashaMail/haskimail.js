@@ -1,3 +1,7 @@
+<a href="https://haskimail.ru">
+    <img src="https://github.com/Dashamail/haskimail.js/raw/main/haskimail.png" alt="Haskimail Logo" title="Haskimail" width="120" height="120" align="right">
+</a>
+
 # Haskimail Node.js
 
 Официальная Node.js библиотека для работы с [Haskimail API](https://haskimail.ru).
