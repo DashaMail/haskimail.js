@@ -56,20 +56,6 @@ await client.resendSenderSignatureConfirmation(12345);
 console.log("Письмо подтверждения отправлено повторно.");
 ```
 
-## Верификация SPF
-
-```typescript
-const result = await client.verifySenderSignatureSPF(12345);
-console.log(`SPF верифицирован: ${result.SPFVerified}`);
-```
-
-## Запрос нового DKIM
-
-```typescript
-const result = await client.requestNewDKIMForSenderSignature(12345);
-console.log(`Новый DKIM: ${result.DKIMHost}`);
-```
-
 ## Удаление подписи
 
 ```typescript

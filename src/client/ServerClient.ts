@@ -9,7 +9,6 @@ import {
 import {
   Bounce,
   Bounces,
-  BounceDump,
   BounceActivationResponse,
   BounceFilteringParameters,
   DeliveryStatistics,
@@ -27,7 +26,6 @@ import { Server, UpdateServerRequest } from "../models/Server";
 import {
   OutboundMessages,
   OutboundMessageDetails,
-  OutboundMessageDump,
   OutboundMessagesFilteringParameters,
   InboundMessages,
   InboundMessageDetails,
@@ -48,10 +46,8 @@ import {
   ClickCounts,
   EmailPlatformUsageCounts,
   EmailClientUsageCounts,
-  EmailReadTimesCounts,
   BrowserUsageCounts,
   ClickPlatformUsageCounts,
-  ClickLocationCounts,
 } from "../models/Stats";
 import {
   InboundRule,
@@ -136,10 +132,6 @@ export class ServerClient extends BaseClient {
     return this.processRequestWithoutBody("GET", `/bounces/${id}`);
   }
 
-  getBounceDump(id: number): Promise<BounceDump> {
-    return this.processRequestWithoutBody("GET", `/bounces/${id}/dump`);
-  }
-
   activateBounce(id: number): Promise<BounceActivationResponse> {
     return this.processRequestWithBody("PUT", `/bounces/${id}/activate`, {});
   }
@@ -222,13 +214,6 @@ export class ServerClient extends BaseClient {
     return this.processRequestWithoutBody(
       "GET",
       `/messages/outbound/${messageId}/details`
-    );
-  }
-
-  getOutboundMessageDump(messageId: string): Promise<OutboundMessageDump> {
-    return this.processRequestWithoutBody(
-      "GET",
-      `/messages/outbound/${messageId}/dump`
     );
   }
 
@@ -403,16 +388,6 @@ export class ServerClient extends BaseClient {
     );
   }
 
-  getEmailOpenReadTimes(
-    filter?: StatisticsFilteringParameters
-  ): Promise<EmailReadTimesCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/opens/readtimes",
-      filter as Record<string, unknown>
-    );
-  }
-
   getClickCounts(
     filter?: StatisticsFilteringParameters
   ): Promise<ClickCounts> {
@@ -439,16 +414,6 @@ export class ServerClient extends BaseClient {
     return this.processRequestWithoutBody(
       "GET",
       "/stats/outbound/clicks/platforms",
-      filter as Record<string, unknown>
-    );
-  }
-
-  getClickLocation(
-    filter?: StatisticsFilteringParameters
-  ): Promise<ClickLocationCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/clicks/location",
       filter as Record<string, unknown>
     );
   }

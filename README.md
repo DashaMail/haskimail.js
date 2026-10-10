@@ -103,7 +103,7 @@ const client = new ServerClient("серверный-токен");
 Используется для операций на уровне аккаунта с аккаунтным токеном (`X-Haskimail-Account-Token`):
 
 - Управление серверами
-- Управление доменами (DKIM, SPF, Return-Path)
+- Управление доменами (DKIM, SPF)
 - Управление подписями отправителей
 - Перенос шаблонов между серверами
 - Запросы на удаление данных
@@ -154,7 +154,6 @@ const client = new ServerClient("токен", {
 | `getDeliveryStatistics()` | Статистика доставки |
 | `getBounces(filter?)` | Список отказов |
 | `getBounce(id)` | Детали отказа |
-| `getBounceDump(id)` | Дамп отказа |
 | `activateBounce(id)` | Активировать (восстановить) отказ |
 
 ### Исходящие сообщения
@@ -163,7 +162,6 @@ const client = new ServerClient("токен", {
 |---|---|
 | `getOutboundMessages(filter?)` | Список исходящих сообщений |
 | `getOutboundMessageDetails(messageId)` | Детали сообщения |
-| `getOutboundMessageDump(messageId)` | Дамп сообщения |
 
 ### Входящие сообщения
 
@@ -195,11 +193,9 @@ const client = new ServerClient("токен", {
 | `getEmailOpenCounts(filter?)` | Статистика открытий |
 | `getEmailOpenPlatformUsage(filter?)` | Открытия по платформам |
 | `getEmailOpenClientUsage(filter?)` | Открытия по клиентам |
-| `getEmailOpenReadTimes(filter?)` | Время чтения |
 | `getClickCounts(filter?)` | Статистика кликов |
 | `getClickBrowserUsage(filter?)` | Клики по браузерам |
 | `getClickPlatformUsage(filter?)` | Клики по платформам |
-| `getClickLocation(filter?)` | Клики по расположению |
 
 ### Каналы сообщений
 

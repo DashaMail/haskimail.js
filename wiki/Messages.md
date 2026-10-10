@@ -40,15 +40,6 @@ const details = await client.getOutboundMessageDetails("message-id-here");
 console.log(details.Subject, details.Status, details.TrackOpens);
 ```
 
-### Дамп сообщения
-
-Получение полного содержимого отправленного письма.
-
-```typescript
-const dump = await client.getOutboundMessageDump("message-id-here");
-console.log(dump.Body);
-```
-
 ## Входящие сообщения
 
 ### Список входящих

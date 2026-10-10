@@ -8,15 +8,8 @@ import {
   UpdateServerRequest,
   ServerFilteringParameters,
 } from "../models/Server";
+import { DomainDetails, Domains, CreateDomainRequest } from "../models/Domain";
 import {
-  Domain,
-  DomainDetails,
-  Domains,
-  CreateDomainRequest,
-  UpdateDomainRequest,
-} from "../models/Domain";
-import {
-  Signature,
   SignatureDetails,
   Signatures,
   CreateSignatureRequest,
@@ -89,13 +82,6 @@ export class AccountClient extends BaseClient {
     return this.processRequestWithBody("POST", "/domains", options);
   }
 
-  editDomain(
-    id: number,
-    options: UpdateDomainRequest
-  ): Promise<DomainDetails> {
-    return this.processRequestWithBody("PUT", `/domains/${id}`, options);
-  }
-
   deleteDomain(id: number): Promise<DefaultResponse> {
     return this.processRequestWithoutBody("DELETE", `/domains/${id}`);
   }
@@ -104,14 +90,6 @@ export class AccountClient extends BaseClient {
     return this.processRequestWithBody(
       "PUT",
       `/domains/${id}/verifyDkim`,
-      {}
-    );
-  }
-
-  verifyDomainReturnPath(id: number): Promise<DomainDetails> {
-    return this.processRequestWithBody(
-      "PUT",
-      `/domains/${id}/verifyReturnPath`,
       {}
     );
   }
@@ -169,22 +147,6 @@ export class AccountClient extends BaseClient {
     return this.processRequestWithBody(
       "POST",
       `/senders/${id}/resend`,
-      {}
-    );
-  }
-
-  verifySenderSignatureSPF(id: number): Promise<SignatureDetails> {
-    return this.processRequestWithBody(
-      "POST",
-      `/senders/${id}/verifyspf`,
-      {}
-    );
-  }
-
-  requestNewDKIMForSenderSignature(id: number): Promise<SignatureDetails> {
-    return this.processRequestWithBody(
-      "POST",
-      `/senders/${id}/requestnewdkim`,
       {}
     );
   }

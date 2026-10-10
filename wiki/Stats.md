@@ -94,15 +94,6 @@ const clients = await client.getEmailOpenClientUsage({
 });
 ```
 
-### Время чтения
-
-```typescript
-const readTimes = await client.getEmailOpenReadTimes({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
-```
-
 ## Клики
 
 ```typescript
@@ -126,15 +117,6 @@ const browsers = await client.getClickBrowserUsage({
 
 ```typescript
 const platforms = await client.getClickPlatformUsage({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
-```
-
-### По расположению ссылки
-
-```typescript
-const location = await client.getClickLocation({
   fromdate: "2024-01-01",
   todate: "2024-12-31",
 });

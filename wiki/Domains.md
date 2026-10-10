@@ -61,27 +61,12 @@ const result = await client.verifyDomainSPF(12345);
 console.log(`SPF верифицирован: ${result.SPFVerified}`);
 ```
 
-## Верификация Return-Path
-
-```typescript
-const result = await client.verifyDomainReturnPath(12345);
-console.log(`Return-Path верифицирован: ${result.ReturnPathDomainVerified}`);
-```
-
 ## Ротация DKIM-ключа
 
 ```typescript
 const result = await client.rotateDomainDKIM(12345);
 console.log(`Новый DKIM Host: ${result.DKIMPendingHost}`);
 console.log(`Новое значение: ${result.DKIMPendingTextValue}`);
-```
-
-## Редактирование домена
-
-```typescript
-await client.editDomain(12345, {
-  ReturnPathDomain: "new-bounces.example.ru",
-});
 ```
 
 ## Удаление домена

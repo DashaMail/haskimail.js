@@ -50,15 +50,6 @@ const bounce = await client.getBounce(42);
 console.log(bounce.Email, bounce.Type, bounce.BouncedAt);
 ```
 
-## Дамп отказа
-
-Получение сырого содержимого письма-отказа.
-
-```typescript
-const dump = await client.getBounceDump(42);
-console.log(dump.Body);
-```
-
 ## Активация отказа
 
 Повторная активация адреса, чтобы вновь разрешить отправку на него.
