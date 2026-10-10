@@ -61,14 +61,6 @@ const result = await client.verifyDomainSPF(12345);
 console.log(`SPF верифицирован: ${result.SPFVerified}`);
 ```
 
-## Ротация DKIM-ключа
-
-```typescript
-const result = await client.rotateDomainDKIM(12345);
-console.log(`Новый DKIM Host: ${result.DKIMPendingHost}`);
-console.log(`Новое значение: ${result.DKIMPendingTextValue}`);
-```
-
 ## Удаление домена
 
 ```typescript

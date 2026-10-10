@@ -98,14 +98,6 @@ export class AccountClient extends BaseClient {
     );
   }
 
-  rotateDomainDKIM(id: number): Promise<DomainDetails> {
-    return this.processRequestWithBody(
-      "POST",
-      `/domains/${id}/rotatedkim`,
-      {}
-    );
-  }
-
   // ---- Подписи отправителей ----
 
   getSenderSignatures(filter?: FilteringParameters): Promise<Signatures> {
