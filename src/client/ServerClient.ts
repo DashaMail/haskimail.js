@@ -37,13 +37,8 @@ import {
   SentCounts,
   BounceCounts,
   SpamCounts,
-  TrackedEmailCounts,
   OpenCounts,
   ClickCounts,
-  EmailPlatformUsageCounts,
-  EmailClientUsageCounts,
-  BrowserUsageCounts,
-  ClickPlatformUsageCounts,
 } from "../models/Stats";
 import {
   InboundRule,
@@ -316,16 +311,6 @@ export class ServerClient extends BaseClient {
     );
   }
 
-  getTrackedEmailCounts(
-    filter?: StatisticsFilteringParameters
-  ): Promise<TrackedEmailCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/tracked",
-      filter as Record<string, unknown>
-    );
-  }
-
   getEmailOpenCounts(
     filter?: StatisticsFilteringParameters
   ): Promise<OpenCounts> {
@@ -336,52 +321,12 @@ export class ServerClient extends BaseClient {
     );
   }
 
-  getEmailOpenPlatformUsage(
-    filter?: StatisticsFilteringParameters
-  ): Promise<EmailPlatformUsageCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/opens/platforms",
-      filter as Record<string, unknown>
-    );
-  }
-
-  getEmailOpenClientUsage(
-    filter?: StatisticsFilteringParameters
-  ): Promise<EmailClientUsageCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/opens/emailclients",
-      filter as Record<string, unknown>
-    );
-  }
-
   getClickCounts(
     filter?: StatisticsFilteringParameters
   ): Promise<ClickCounts> {
     return this.processRequestWithoutBody(
       "GET",
       "/stats/clicks",
-      filter as Record<string, unknown>
-    );
-  }
-
-  getClickBrowserUsage(
-    filter?: StatisticsFilteringParameters
-  ): Promise<BrowserUsageCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/clicks/browserfamilies",
-      filter as Record<string, unknown>
-    );
-  }
-
-  getClickPlatformUsage(
-    filter?: StatisticsFilteringParameters
-  ): Promise<ClickPlatformUsageCounts> {
-    return this.processRequestWithoutBody(
-      "GET",
-      "/stats/outbound/clicks/platforms",
       filter as Record<string, unknown>
     );
   }

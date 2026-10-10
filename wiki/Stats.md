@@ -56,16 +56,6 @@ const spam = await client.getSpamComplaintsCounts({
 console.log(`Жалоб: ${spam.SpamComplaint}`);
 ```
 
-## Отслеживаемые письма
-
-```typescript
-const tracked = await client.getTrackedEmailCounts({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
-console.log(`Отслеживаемых: ${tracked.Tracked}`);
-```
-
 ## Открытия
 
 ```typescript
@@ -76,24 +66,6 @@ const opens = await client.getEmailOpenCounts({
 console.log(`Открытий: ${opens.Opens}, Уникальных: ${opens.Unique}`);
 ```
 
-### По платформам
-
-```typescript
-const platforms = await client.getEmailOpenPlatformUsage({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
-```
-
-### По почтовым клиентам
-
-```typescript
-const clients = await client.getEmailOpenClientUsage({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
-```
-
 ## Клики
 
 ```typescript
@@ -102,24 +74,6 @@ const clicks = await client.getClickCounts({
   todate: "2024-12-31",
 });
 console.log(`Кликов: ${clicks.Clicks}, Уникальных: ${clicks.Unique}`);
-```
-
-### По браузерам
-
-```typescript
-const browsers = await client.getClickBrowserUsage({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
-```
-
-### По платформам
-
-```typescript
-const platforms = await client.getClickPlatformUsage({
-  fromdate: "2024-01-01",
-  todate: "2024-12-31",
-});
 ```
 
 ## Общие параметры фильтрации
