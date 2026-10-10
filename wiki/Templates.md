@@ -98,28 +98,6 @@ await client.deleteTemplate(12345);
 await client.deleteTemplate("welcome");
 ```
 
-## Валидация шаблона
-
-Проверка корректности шаблона без сохранения.
-
-```typescript
-const validation = await client.validateTemplate({
-  Subject: "Тест {{name}}",
-  HtmlBody: "<p>Привет, {{name}}!</p>",
-  TextBody: "Привет, {{name}}!",
-  TestRenderModel: {
-    name: "Иван",
-  },
-});
-
-if (validation.AllContentIsValid) {
-  console.log("Шаблон валиден");
-  console.log("HTML:", validation.HtmlBody?.RenderedContent);
-} else {
-  console.log("Ошибки:", validation.HtmlBody?.ValidationErrors);
-}
-```
-
 ## Отправка с шаблоном
 
 ### Одно письмо
