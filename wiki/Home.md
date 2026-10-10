@@ -18,7 +18,7 @@
 | Клиент | Токен | Назначение |
 |---|---|---|
 | `ServerClient` | `X-Haskimail-Server-Token` | Отправка писем, шаблоны, статистика, вебхуки |
-| `AccountClient` | `X-Haskimail-Account-Token` | Управление серверами, доменами, подписями |
+| `AccountClient` | `X-Haskimail-Account-Token` | Управление серверами и доменами |
 
 ## Ресурсы
 

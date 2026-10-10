@@ -10,12 +10,6 @@ import {
 } from "../models/Server";
 import { DomainDetails, Domains, CreateDomainRequest } from "../models/Domain";
 import {
-  SignatureDetails,
-  Signatures,
-  CreateSignatureRequest,
-  UpdateSignatureRequest,
-} from "../models/Signature";
-import {
   TemplatesPushRequest,
   TemplatesPush,
 } from "../models/Template";
@@ -94,47 +88,6 @@ export class AccountClient extends BaseClient {
     return this.processRequestWithBody(
       "PUT",
       `/domains/${id}/verifyspf`,
-      {}
-    );
-  }
-
-  // ---- Подписи отправителей ----
-
-  getSenderSignatures(filter?: FilteringParameters): Promise<Signatures> {
-    const params = filter || {};
-    this.setDefaultPaginationValues(params);
-    return this.processRequestWithoutBody(
-      "GET",
-      "/senders",
-      params as Record<string, unknown>
-    );
-  }
-
-  getSenderSignature(id: number): Promise<SignatureDetails> {
-    return this.processRequestWithoutBody("GET", `/senders/${id}`);
-  }
-
-  createSenderSignature(
-    options: CreateSignatureRequest
-  ): Promise<SignatureDetails> {
-    return this.processRequestWithBody("POST", "/senders", options);
-  }
-
-  editSenderSignature(
-    id: number,
-    options: UpdateSignatureRequest
-  ): Promise<SignatureDetails> {
-    return this.processRequestWithBody("PUT", `/senders/${id}`, options);
-  }
-
-  deleteSenderSignature(id: number): Promise<DefaultResponse> {
-    return this.processRequestWithoutBody("DELETE", `/senders/${id}`);
-  }
-
-  resendSenderSignatureConfirmation(id: number): Promise<DefaultResponse> {
-    return this.processRequestWithBody(
-      "POST",
-      `/senders/${id}/resend`,
       {}
     );
   }

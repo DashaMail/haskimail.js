@@ -166,41 +166,6 @@ describe("AccountClient", () => {
     });
   });
 
-  describe("подписи отправителей", () => {
-    it("getSenderSignatures - должен отправить GET на /senders", async () => {
-      getMockAxios().request.mockResolvedValueOnce({
-        data: { TotalCount: 1, SenderSignatures: [] },
-      });
-
-      await client.getSenderSignatures();
-
-      expect(getMockAxios().request).toHaveBeenCalledWith(
-        expect.objectContaining({
-          method: "GET",
-          url: "/senders",
-        })
-      );
-    });
-
-    it("createSenderSignature - должен отправить POST на /senders", async () => {
-      getMockAxios().request.mockResolvedValueOnce({
-        data: { ID: 1, EmailAddress: "test@example.com" },
-      });
-
-      await client.createSenderSignature({
-        FromEmail: "test@example.com",
-        Name: "Тестовый отправитель",
-      });
-
-      expect(getMockAxios().request).toHaveBeenCalledWith(
-        expect.objectContaining({
-          method: "POST",
-          url: "/senders",
-        })
-      );
-    });
-  });
-
   describe("шаблоны", () => {
     it("pushTemplates - должен отправить PUT на /templates/push", async () => {
       getMockAxios().request.mockResolvedValueOnce({
