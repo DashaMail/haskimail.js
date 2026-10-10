@@ -327,7 +327,7 @@ describe("ServerClient", () => {
   });
 
   describe("статистика", () => {
-    it("getOutboundOverview - должен отправить GET на /stats/outbound", async () => {
+    it("getOutboundOverview - должен отправить GET на /stats", async () => {
       getMockAxios().request.mockResolvedValueOnce({
         data: { Sent: 100, Bounced: 5 },
       });
@@ -337,7 +337,7 @@ describe("ServerClient", () => {
       expect(getMockAxios().request).toHaveBeenCalledWith(
         expect.objectContaining({
           method: "GET",
-          url: "/stats/outbound",
+          url: "/stats",
         })
       );
       expect(result.Sent).toBe(100);
@@ -356,7 +356,7 @@ describe("ServerClient", () => {
       expect(getMockAxios().request).toHaveBeenCalledWith(
         expect.objectContaining({
           method: "GET",
-          url: "/stats/outbound/sends",
+          url: "/stats/sends",
           params: expect.objectContaining({
             fromdate: "2025-01-01",
             todate: "2025-01-31",

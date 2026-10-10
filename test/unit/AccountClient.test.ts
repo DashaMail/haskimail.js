@@ -135,7 +135,7 @@ describe("AccountClient", () => {
       );
     });
 
-    it("verifyDomainSPF - должен отправить PUT на /domains/{id}/verifySPF", async () => {
+    it("verifyDomainSPF - должен отправить PUT на /domains/{id}/verifyspf", async () => {
       getMockAxios().request.mockResolvedValueOnce({
         data: { ID: 1, SPFVerified: true },
       });
@@ -145,7 +145,7 @@ describe("AccountClient", () => {
       expect(getMockAxios().request).toHaveBeenCalledWith(
         expect.objectContaining({
           method: "PUT",
-          url: "/domains/1/verifySPF",
+          url: "/domains/1/verifyspf",
         })
       );
     });

@@ -119,7 +119,7 @@ export class AccountClient extends BaseClient {
   verifyDomainSPF(id: number): Promise<DomainDetails> {
     return this.processRequestWithBody(
       "PUT",
-      `/domains/${id}/verifySPF`,
+      `/domains/${id}/verifyspf`,
       {}
     );
   }

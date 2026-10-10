@@ -330,7 +330,7 @@ export class ServerClient extends BaseClient {
   ): Promise<OutboundStatistics> {
     return this.processRequestWithoutBody(
       "GET",
-      "/stats/outbound",
+      "/stats",
       filter as Record<string, unknown>
     );
   }
@@ -338,7 +338,7 @@ export class ServerClient extends BaseClient {
   getSentCounts(filter?: StatisticsFilteringParameters): Promise<SentCounts> {
     return this.processRequestWithoutBody(
       "GET",
-      "/stats/outbound/sends",
+      "/stats/sends",
       filter as Record<string, unknown>
     );
   }
@@ -348,7 +348,7 @@ export class ServerClient extends BaseClient {
   ): Promise<BounceCounts> {
     return this.processRequestWithoutBody(
       "GET",
-      "/stats/outbound/bounces",
+      "/stats/bounces",
       filter as Record<string, unknown>
     );
   }
@@ -358,7 +358,7 @@ export class ServerClient extends BaseClient {
   ): Promise<SpamCounts> {
     return this.processRequestWithoutBody(
       "GET",
-      "/stats/outbound/spam",
+      "/stats/spam",
       filter as Record<string, unknown>
     );
   }
@@ -378,7 +378,7 @@ export class ServerClient extends BaseClient {
   ): Promise<OpenCounts> {
     return this.processRequestWithoutBody(
       "GET",
-      "/stats/outbound/opens",
+      "/stats/opens",
       filter as Record<string, unknown>
     );
   }
@@ -418,7 +418,7 @@ export class ServerClient extends BaseClient {
   ): Promise<ClickCounts> {
     return this.processRequestWithoutBody(
       "GET",
-      "/stats/outbound/clicks",
+      "/stats/clicks",
       filter as Record<string, unknown>
     );
   }
