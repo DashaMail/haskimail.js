@@ -42,19 +42,3 @@ const filtered = await client.getBounces({
   todate: "2024-12-31",
 });
 ```
-
-## Получение отказа по ID
-
-```typescript
-const bounce = await client.getBounce(42);
-console.log(bounce.Email, bounce.Type, bounce.BouncedAt);
-```
-
-## Активация отказа
-
-Повторная активация адреса, чтобы вновь разрешить отправку на него.
-
-```typescript
-const result = await client.activateBounce(42);
-console.log(result.Message); // "OK"
-```

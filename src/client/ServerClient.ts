@@ -7,9 +7,7 @@ import {
   MessageSendingResponse,
 } from "../models/Message";
 import {
-  Bounce,
   Bounces,
-  BounceActivationResponse,
   BounceFilteringParameters,
   DeliveryStatistics,
 } from "../models/Bounce";
@@ -126,14 +124,6 @@ export class ServerClient extends BaseClient {
       "/bounces",
       params as Record<string, unknown>
     );
-  }
-
-  getBounce(id: number): Promise<Bounce> {
-    return this.processRequestWithoutBody("GET", `/bounces/${id}`);
-  }
-
-  activateBounce(id: number): Promise<BounceActivationResponse> {
-    return this.processRequestWithBody("PUT", `/bounces/${id}/activate`, {});
   }
 
   // ---- Шаблоны ----

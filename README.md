@@ -152,8 +152,6 @@ const client = new ServerClient("токен", {
 |---|---|
 | `getDeliveryStatistics()` | Статистика доставки |
 | `getBounces(filter?)` | Список отказов |
-| `getBounce(id)` | Детали отказа |
-| `activateBounce(id)` | Активировать (восстановить) отказ |
 
 ### Исходящие сообщения
 
