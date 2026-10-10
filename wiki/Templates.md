@@ -115,22 +115,3 @@ const result = await client.sendEmailWithTemplate({
   To: "recipient@example.com",
 });
 ```
-
-### Пакетная отправка по шаблону
-
-```typescript
-const results = await client.sendEmailBatchWithTemplates([
-  {
-    TemplateAlias: "welcome",
-    TemplateModel: { name: "Иван" },
-    From: "sender@ваш-домен.ru",
-    To: "ivan@example.com",
-  },
-  {
-    TemplateAlias: "welcome",
-    TemplateModel: { name: "Мария" },
-    From: "sender@ваш-домен.ru",
-    To: "maria@example.com",
-  },
-]);
-```

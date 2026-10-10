@@ -100,29 +100,6 @@ describe("ServerClient", () => {
       expect(result.MessageID).toBe("abc-123");
     });
 
-    it("sendEmailBatch - должен отправить POST на /email/batch", async () => {
-      const mockResponse = {
-        data: [
-          { To: "a@test.com", MessageID: "1", ErrorCode: 0, Message: "OK" },
-          { To: "b@test.com", MessageID: "2", ErrorCode: 0, Message: "OK" },
-        ],
-      };
-      getMockAxios().request.mockResolvedValueOnce(mockResponse);
-
-      const result = await client.sendEmailBatch([
-        { From: "s@test.com", To: "a@test.com", Subject: "Тест 1" },
-        { From: "s@test.com", To: "b@test.com", Subject: "Тест 2" },
-      ]);
-
-      expect(getMockAxios().request).toHaveBeenCalledWith(
-        expect.objectContaining({
-          method: "POST",
-          url: "/email/batch",
-        })
-      );
-      expect(result).toHaveLength(2);
-    });
-
     it("sendEmailWithTemplate - должен отправить POST на /email/withTemplate", async () => {
       const mockResponse = {
         data: {
