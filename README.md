@@ -106,7 +106,6 @@ const client = new ServerClient("серверный-токен");
 - Управление доменами (DKIM, SPF)
 - Управление подписями отправителей
 - Перенос шаблонов между серверами
-- Запросы на удаление данных
 
 ```typescript
 import { AccountClient } from "haskimail";

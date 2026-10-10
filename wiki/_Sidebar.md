@@ -32,7 +32,6 @@
 
 **Прочее**
 - [[Обработка ошибок|Error-Handling]]
-- [[Удаление данных|Data-Removal]]
 - [[Мокирование запросов|Mocking-HTTP-Requests]]
 - [[Известные проблемы|Known-Issues]]
 - [[Устранение проблем|Troubleshooting]]

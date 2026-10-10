@@ -19,10 +19,6 @@ import {
   TemplatesPushRequest,
   TemplatesPush,
 } from "../models/Template";
-import {
-  DataRemovalRequest,
-  DataRemovalStatus,
-} from "../models/DataRemoval";
 
 const AUTH_HEADER = "X-Haskimail-Account-Token";
 
@@ -155,21 +151,5 @@ export class AccountClient extends BaseClient {
 
   pushTemplates(options: TemplatesPushRequest): Promise<TemplatesPush> {
     return this.processRequestWithBody("PUT", "/templates/push", options);
-  }
-
-  // ---- Удаление данных ----
-
-  requestDataRemoval(
-    options: DataRemovalRequest
-  ): Promise<DataRemovalStatus> {
-    return this.processRequestWithBody(
-      "POST",
-      "/data-removals",
-      options
-    );
-  }
-
-  getDataRemovalStatus(id: number): Promise<DataRemovalStatus> {
-    return this.processRequestWithoutBody("GET", `/data-removals/${id}`);
   }
 }
