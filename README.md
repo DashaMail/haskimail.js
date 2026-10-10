@@ -231,13 +231,6 @@ const client = new ServerClient("токен", {
 | `createInboundRuleTrigger(options)` | Создать правило |
 | `deleteInboundRuleTrigger(id)` | Удалить правило |
 
-### Сервер
-
-| Метод | Описание |
-|---|---|
-| `getServer()` | Получить настройки сервера |
-| `editServer(options)` | Изменить настройки сервера |
-
 ## Обработка ошибок
 
 Библиотека предоставляет типизированные ошибки для разных ситуаций:

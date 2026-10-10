@@ -20,7 +20,7 @@ import {
   TemplateValidationOptions,
   TemplateValidation,
 } from "../models/Template";
-import { Server, UpdateServerRequest } from "../models/Server";
+import { Server } from "../models/Server";
 import {
   OutboundMessages,
   OutboundMessageDetails,
@@ -172,16 +172,6 @@ export class ServerClient extends BaseClient {
       "/templates/validate",
       options
     );
-  }
-
-  // ---- Сервер ----
-
-  getServer(): Promise<Server> {
-    return this.processRequestWithoutBody("GET", "/server");
-  }
-
-  editServer(options: UpdateServerRequest): Promise<Server> {
-    return this.processRequestWithBody("PUT", "/server", options);
   }
 
   // ---- Исходящие сообщения ----
