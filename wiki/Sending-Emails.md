@@ -167,3 +167,30 @@ await client.sendEmail({
   HtmlBody: "<p>Текст для всех получателей</p>",
 });
 ```
+
+## Пакетная отправка
+
+Отправка до 500 писем одним запросом.
+
+```typescript
+const messages = [
+  {
+    From: "sender@ваш-домен.ru",
+    To: "user1@example.com",
+    Subject: "Письмо 1",
+    TextBody: "Текст 1",
+  },
+  {
+    From: "sender@ваш-домен.ru",
+    To: "user2@example.com",
+    Subject: "Письмо 2",
+    TextBody: "Текст 2",
+  },
+];
+
+const results = await client.sendEmailBatch(messages);
+
+results.forEach((r) => {
+  console.log(`${r.To}: ${r.MessageID}`);
+});
+```

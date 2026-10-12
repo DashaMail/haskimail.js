@@ -83,10 +83,24 @@ export class ServerClient extends BaseClient {
     return this.processRequestWithBody("POST", "/email", email);
   }
 
+  sendEmailBatch(emails: Message[]): Promise<MessageSendingResponse[]> {
+    return this.processRequestWithBody("POST", "/email/batch", emails);
+  }
+
   sendEmailWithTemplate(
     template: TemplatedMessage
   ): Promise<MessageSendingResponse> {
     return this.processRequestWithBody("POST", "/email/withTemplate", template);
+  }
+
+  sendEmailBatchWithTemplates(
+    templates: TemplatedMessage[]
+  ): Promise<MessageSendingResponse[]> {
+    return this.processRequestWithBody(
+      "POST",
+      "/email/batchWithTemplates",
+      { Messages: templates }
+    );
   }
 
   // ---- Отказы (bounces) ----

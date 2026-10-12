@@ -55,6 +55,25 @@ const result = await client.sendEmailWithTemplate({
 });
 ```
 
+### Пакетная отправка
+
+```typescript
+const results = await client.sendEmailBatch([
+  {
+    From: "sender@ваш-домен.ru",
+    To: "user1@example.com",
+    Subject: "Письмо 1",
+    TextBody: "Содержимое письма 1",
+  },
+  {
+    From: "sender@ваш-домен.ru",
+    To: "user2@example.com",
+    Subject: "Письмо 2",
+    TextBody: "Содержимое письма 2",
+  },
+]);
+```
+
 ## Клиенты
 
 Библиотека предоставляет два основных клиента:
@@ -111,7 +130,9 @@ const client = new ServerClient("токен", {
 | Метод | Описание |
 |---|---|
 | `sendEmail(email)` | Отправка одного письма |
+| `sendEmailBatch(emails)` | Пакетная отправка (до 500 писем) |
 | `sendEmailWithTemplate(template)` | Отправка с использованием шаблона |
+| `sendEmailBatchWithTemplates(templates)` | Пакетная отправка по шаблонам |
 
 ### Шаблоны
 
