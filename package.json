@@ -1,6 +1,6 @@
 {
   "name": "haskimail",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Официальная Node.js библиотека для работы с API Haskimail",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
