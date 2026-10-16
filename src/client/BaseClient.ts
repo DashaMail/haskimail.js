@@ -3,7 +3,7 @@ import { FilteringParameters } from "../models/Filtering";
 import { HttpClient } from "./HttpClient";
 
 export abstract class BaseClient {
-  public clientVersion: string = "1.1.0";
+  public clientVersion: string = "1.2.0";
   public httpClient: HttpClient;
 
   protected constructor(

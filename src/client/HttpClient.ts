@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, Method } from "axios";
 import { Configuration, DefaultConfiguration } from "../models/ClientOptions";
 import { ErrorHandler } from "../errors/ErrorHandler";
 
-const PACKAGE_VERSION = "1.1.0";
+const PACKAGE_VERSION = "1.2.0";
 
 export class HttpClient {
   private client: AxiosInstance;
