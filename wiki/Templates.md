@@ -98,6 +98,28 @@ await client.deleteTemplate(12345);
 await client.deleteTemplate("welcome");
 ```
 
+## Валидация шаблона
+
+Проверка шаблона без сохранения: что получит получатель и какие фрагменты `{{…}}` остались без значения. Подстановка буквальная: ключ модели — фрагмент шаблона вместе с `{{` и `}}`.
+
+```typescript
+const validation = await client.validateTemplate({
+  Subject: "Тест {{name}}",
+  HtmlBody: "<p>Привет, {{name}}!</p>",
+  TextBody: "Привет, {{name}}!",
+  TestRenderModel: {
+    "{{name}}": "Иван",
+  },
+});
+
+if (validation.AllContentIsValid) {
+  console.log("Шаблон валиден");
+  console.log("HTML:", validation.HtmlBody?.RenderedContent);
+} else {
+  console.log("Ошибки:", validation.HtmlBody?.ValidationErrors);
+}
+```
+
 ## Отправка с шаблоном
 
 ### Одно письмо

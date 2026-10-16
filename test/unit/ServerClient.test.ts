@@ -238,6 +238,35 @@ describe("ServerClient", () => {
         })
       );
     });
+
+    it("validateTemplate - должен отправить POST на /templates/validate", async () => {
+      getMockAxios().request.mockResolvedValueOnce({
+        data: {
+          AllContentIsValid: false,
+          HtmlBody: {
+            ContentIsValid: false,
+            ValidationErrors: [{ Message: "Нет значения для {{track}}", Line: 1, CharacterPosition: 4 }],
+            RenderedContent: "<p>{{track}}</p>",
+          },
+          SuggestedTemplateModel: { "{{track}}": "track_Value" },
+        },
+      });
+
+      const result = await client.validateTemplate({
+        Subject: "Заказ",
+        HtmlBody: "<p>{{track}}</p>",
+        TestRenderModel: { "{{name}}": "Иван" },
+      });
+
+      expect(getMockAxios().request).toHaveBeenCalledWith(
+        expect.objectContaining({
+          method: "POST",
+          url: "/templates/validate",
+          data: expect.objectContaining({ HtmlBody: "<p>{{track}}</p>" }),
+        })
+      );
+      expect(result.HtmlBody?.ValidationErrors?.[0].Line).toBe(1);
+    });
   });
 
   describe("вебхуки", () => {

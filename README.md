@@ -143,6 +143,7 @@ const client = new ServerClient("токен", {
 | `createTemplate(options)` | Создать шаблон |
 | `editTemplate(idOrAlias, options)` | Редактировать шаблон |
 | `deleteTemplate(idOrAlias)` | Удалить шаблон |
+| `validateTemplate(options)` | Валидировать шаблон |
 
 ### Отказы (bounces)
 

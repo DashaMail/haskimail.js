@@ -17,6 +17,8 @@ import {
   CreateTemplateRequest,
   UpdateTemplateRequest,
   TemplateFilteringParameters,
+  TemplateValidationOptions,
+  TemplateValidation,
 } from "../models/Template";
 import { Server } from "../models/Server";
 import {
@@ -154,6 +156,16 @@ export class ServerClient extends BaseClient {
     return this.processRequestWithoutBody(
       "DELETE",
       `/templates/${idOrAlias}`
+    );
+  }
+
+  validateTemplate(
+    options: TemplateValidationOptions
+  ): Promise<TemplateValidation> {
+    return this.processRequestWithBody(
+      "POST",
+      "/templates/validate",
+      options
     );
   }
 
