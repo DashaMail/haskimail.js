@@ -186,7 +186,11 @@ const client = new ServerClient("токен", {
 | `getBounceCounts(filter?)` | Количество отказов |
 | `getSpamComplaintsCounts(filter?)` | Жалобы на спам |
 | `getEmailOpenCounts(filter?)` | Статистика открытий |
+| `getEmailOpenPlatformUsage(filter?)` | Открытия по платформам |
+| `getEmailOpenClientUsage(filter?)` | Открытия по клиентам |
 | `getClickCounts(filter?)` | Статистика кликов |
+| `getClickBrowserUsage(filter?)` | Клики по браузерам |
+| `getClickPlatformUsage(filter?)` | Клики по платформам |
 
 ### Каналы сообщений
 

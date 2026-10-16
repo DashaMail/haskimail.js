@@ -67,16 +67,20 @@ export interface EmailPlatformUsageCounts {
   WebMail: number;
 }
 
+// Итоги за период: ключ — название клиента, рядом с Days
 export interface EmailClientUsageCounts {
   Days: DatedEmailClientCount[];
+  [clientName: string]: number | DatedEmailClientCount[];
 }
 
 export interface EmailReadTimesCounts {
   Days: DatedReadTimeCount[];
 }
 
+// Итоги за период: ключ — название браузера, рядом с Days
 export interface BrowserUsageCounts {
   Days: DatedBrowserCount[];
+  [browserName: string]: number | DatedBrowserCount[];
 }
 
 export interface ClickPlatformUsageCounts {
@@ -84,6 +88,7 @@ export interface ClickPlatformUsageCounts {
   Desktop: number;
   Mobile: number;
   Unknown: number;
+  WebMail: number;
 }
 
 export interface ClickLocationCounts {

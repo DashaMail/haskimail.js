@@ -41,6 +41,10 @@ import {
   SpamCounts,
   OpenCounts,
   ClickCounts,
+  EmailPlatformUsageCounts,
+  EmailClientUsageCounts,
+  BrowserUsageCounts,
+  ClickPlatformUsageCounts,
 } from "../models/Stats";
 import {
   InboundRule,
@@ -333,12 +337,52 @@ export class ServerClient extends BaseClient {
     );
   }
 
+  getEmailOpenPlatformUsage(
+    filter?: StatisticsFilteringParameters
+  ): Promise<EmailPlatformUsageCounts> {
+    return this.processRequestWithoutBody(
+      "GET",
+      "/stats/opens/platforms",
+      filter as Record<string, unknown>
+    );
+  }
+
+  getEmailOpenClientUsage(
+    filter?: StatisticsFilteringParameters
+  ): Promise<EmailClientUsageCounts> {
+    return this.processRequestWithoutBody(
+      "GET",
+      "/stats/opens/emailclients",
+      filter as Record<string, unknown>
+    );
+  }
+
   getClickCounts(
     filter?: StatisticsFilteringParameters
   ): Promise<ClickCounts> {
     return this.processRequestWithoutBody(
       "GET",
       "/stats/clicks",
+      filter as Record<string, unknown>
+    );
+  }
+
+  getClickBrowserUsage(
+    filter?: StatisticsFilteringParameters
+  ): Promise<BrowserUsageCounts> {
+    return this.processRequestWithoutBody(
+      "GET",
+      "/stats/clicks/browserfamilies",
+      filter as Record<string, unknown>
+    );
+  }
+
+  getClickPlatformUsage(
+    filter?: StatisticsFilteringParameters
+  ): Promise<ClickPlatformUsageCounts> {
+    return this.processRequestWithoutBody(
+      "GET",
+      "/stats/clicks/platforms",
       filter as Record<string, unknown>
     );
   }

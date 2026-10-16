@@ -66,6 +66,30 @@ const opens = await client.getEmailOpenCounts({
 console.log(`Открытий: ${opens.Opens}, Уникальных: ${opens.Unique}`);
 ```
 
+### По платформам
+
+```typescript
+const platforms = await client.getEmailOpenPlatformUsage({
+  fromdate: "2024-01-01",
+  todate: "2024-12-31",
+});
+// Desktop, Mobile, WebMail, Unknown — за период и в каждом дне Days
+console.log(platforms.Desktop, platforms.Mobile, platforms.WebMail);
+```
+
+### По почтовым клиентам
+
+```typescript
+const clients = await client.getEmailOpenClientUsage({
+  fromdate: "2024-01-01",
+  todate: "2024-12-31",
+});
+// Ключи — названия клиентов: за период — рядом с Days, по дням — в Days
+for (const day of clients.Days) {
+  console.log(day.Date, day["Apple Mail"], day["Gmail"]);
+}
+```
+
 ## Клики
 
 ```typescript
@@ -74,6 +98,24 @@ const clicks = await client.getClickCounts({
   todate: "2024-12-31",
 });
 console.log(`Кликов: ${clicks.Clicks}, Уникальных: ${clicks.Unique}`);
+```
+
+### По браузерам
+
+```typescript
+const browsers = await client.getClickBrowserUsage({
+  fromdate: "2024-01-01",
+  todate: "2024-12-31",
+});
+```
+
+### По платформам
+
+```typescript
+const platforms = await client.getClickPlatformUsage({
+  fromdate: "2024-01-01",
+  todate: "2024-12-31",
+});
 ```
 
 ## Общие параметры фильтрации

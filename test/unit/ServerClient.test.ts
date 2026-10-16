@@ -393,5 +393,25 @@ describe("ServerClient", () => {
         })
       );
     });
+
+    it("getEmailOpenPlatformUsage и getClickBrowserUsage - пути разбивки", async () => {
+      getMockAxios().request.mockResolvedValueOnce({
+        data: { Days: [{ Date: "2026-10-01", Desktop: 1, Mobile: 2, WebMail: 0, Unknown: 0 }], Desktop: 1, Mobile: 2, WebMail: 0, Unknown: 0 },
+      });
+      const platforms = await client.getEmailOpenPlatformUsage({ fromdate: "2026-10-01" });
+      expect(getMockAxios().request).toHaveBeenCalledWith(
+        expect.objectContaining({ method: "GET", url: "/stats/opens/platforms" })
+      );
+      expect(platforms.Mobile).toBe(2);
+
+      getMockAxios().request.mockResolvedValueOnce({
+        data: { Days: [{ Date: "2026-10-01", Chrome: 3 }], Chrome: 3 },
+      });
+      const browsers = await client.getClickBrowserUsage();
+      expect(getMockAxios().request).toHaveBeenCalledWith(
+        expect.objectContaining({ method: "GET", url: "/stats/clicks/browserfamilies" })
+      );
+      expect(browsers.Chrome).toBe(3);
+    });
   });
 });
